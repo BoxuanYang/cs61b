@@ -6,9 +6,19 @@ import static org.junit.Assert.*;
  *  @author Josh Hug
  */
 
-public class TestArrayRingBuffer {
+public class TestArrayRingBuffer{
     @Test
-    public void someTest() {
-        //ArrayRingBuffer arb = new ArrayRingBuffer(10);
+    public void testEnqueue() {
+        ArrayRingBuffer arb = new ArrayRingBuffer(10);
+        arb.enqueue(10);
+        assertSame(arb.fillCount(), 1);
+        assertTrue("10".equals(arb.toString()));
+        arb.enqueue(20);
+        assertTrue(arb.toString().equals("10 20"));
+        arb.enqueue(30);
+        assertTrue(arb.toString().equals("10 20 30"));
+        assertTrue(arb.peek().equals(10));
+        assertTrue(arb.dequeue().equals(10));
+        assertTrue(arb.toString().equals("20 30"));
     }
 }

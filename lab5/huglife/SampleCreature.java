@@ -41,7 +41,7 @@ public class SampleCreature extends Creature {
     /**
      * degree of color shift to allow.
      */
-    private int colorShift = 5;
+    private int colorShift = 100;
     /**
      * fraction of energy to retain when replicating.
      */
@@ -115,16 +115,33 @@ public class SampleCreature extends Creature {
      * Returns the action selected.
      */
     public Action chooseAction(Map<Direction, Occupant> neighbors) {
+        //Move to top if top neighbour is empty and probability < 20%
         if (neighbors.get(Direction.TOP).name().equals("empty") && Math.random() < moveProbability) {
+
             return new Action(Action.ActionType.MOVE, Direction.TOP);
-        } else if (neighbors.get(Direction.BOTTOM).name().equals("empty") && Math.random() < moveProbability) {
+
+        }
+        //Move to bottom if bottom neighbour is empty and probability < 20%
+        else if (neighbors.get(Direction.BOTTOM).name().equals("empty") && Math.random() < moveProbability) {
+
             return new Action(Action.ActionType.MOVE, Direction.BOTTOM);
-        } else if (neighbors.get(Direction.LEFT).name().equals("empty") && Math.random() < moveProbability) {
+
+        }
+        //Move to left if left neighbour is empty and probability < 20%
+        else if (neighbors.get(Direction.LEFT).name().equals("empty") && Math.random() < moveProbability) {
+
             return new Action(Action.ActionType.MOVE, Direction.LEFT);
-        } else if (neighbors.get(Direction.RIGHT).name().equals("empty") && Math.random() < moveProbability) {
+
+        }
+        //Move to right if right neighbour is empty and probability < 20%
+        else if (neighbors.get(Direction.RIGHT).name().equals("empty") && Math.random() < moveProbability) {
+
             return new Action(Action.ActionType.MOVE, Direction.RIGHT);
+
         } else {
+         //Stay otherwise
             return new Action(Action.ActionType.STAY);
+
         }
     }
 

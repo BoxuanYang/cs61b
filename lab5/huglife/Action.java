@@ -27,7 +27,7 @@ package huglife;
 public class Action {
     /**
      * There are exactly five possible actions. MOVE, REPLICATE, and ATTACK
-     * are movement based. STAY and DIE are non-movement actions.
+     * are movement based. STAY and DneighborIE are non-movement actions.
      */
     public enum ActionType {
         MOVE,
