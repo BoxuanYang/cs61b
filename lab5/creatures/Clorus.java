@@ -27,6 +27,7 @@ public class Clorus extends huglife.Creature {
      */
     private int b;
 
+    
     /**
      * creates plip with energy equal to E.
      */
